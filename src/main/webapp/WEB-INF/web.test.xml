@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<!-- 初始化WMS基本信息 -->
+	<servlet>
+		<servlet-name>WMSInfoLoad</servlet-name>
+		<servlet-class>org.lazicats.ecos.internal.common.WmsInfoServlet</servlet-class>
+		<init-param>
+			<param-name>infoProperties</param-name>
+			<param-value>test/wms_conf.test.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jinliProperties</param-name>
+			<param-value>test/jinli_conf.test.properties</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+
+	<!-- 初始化短信接口信息 -->
+	<servlet>
+		<servlet-name>phoneInfoLoad</servlet-name>
+		<servlet-class>org.lazicats.ecos.internal.phoneSms.common.PhoneSmsServlet</servlet-class>
+		<init-param>
+			<param-name>phoneSwsProperties</param-name>
+			<param-value>test/phoneSws.test.properties</param-value>
+		</init-param>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+
+	<!-- 初始化银行基本信息 -->
+	<servlet>
+		<servlet-name>bankInfoLoad</servlet-name>
+		<servlet-class>org.lazicats.ecos.internal.common.BankInfoLoadServlet</servlet-class>
+		<init-param>
+			<param-name>bankProperties</param-name>
+			<param-value>test/bank.test.properties</param-value>
+		</init-param>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+
+</web-app>

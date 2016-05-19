@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="IOrderPayment"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl"
+			value="${cacheservice.hessian.addrport}/ECD-CacheService/remote/orderPaymentService" />
+		<property name="serviceInterface"
+			value="org.lazicats.ecos.order.cacheprocess.IOrderPayment" />
+	</bean>
+
+	<bean id="orderComponent"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl"
+			value="${mallmgt.hessian.addrport}/ECW-MallMgt/remote/orderComponentService" />
+		<property name="serviceInterface"
+			value="org.lazicats.ecos.order.service.component.IOrderComponent" />
+	</bean>
+	
+</beans>
